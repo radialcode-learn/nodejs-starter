@@ -2,7 +2,8 @@
 
 1. Authentication
    -- jwt tokens
-   -- cookies
+   -- cookies & Signed Cookies
+   -- http://expressjs.com/en/5x/api.html#res.cookie
 
 2. Database Setup
    -- MongoDB & PostgreSQL

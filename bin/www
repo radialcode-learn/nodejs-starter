@@ -8,7 +8,6 @@ var app = require("../app");
 var debug = require("debug")("hello-nodejs:server");
 var http = require("http");
 const mongoose = require("mongoose");
-require("dotenv").config();
 
 /**
  * Connecting with database

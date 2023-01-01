@@ -2,8 +2,6 @@ const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const catchAsync = require("../utils/catchAsync");
-const validator = require("validator");
-const AppError = require("../utils/appError");
 
 /**
  * Signing tokens with jwt
@@ -60,6 +58,7 @@ exports.login = catchAsync(async (req, res, next) => {
     expires: new Date(Date.now + 90 * 24 * 60 * 1000),
     // secure: true,
     httpOnly: true,
+    signed: true,
   });
 
   res.status(200).json({
