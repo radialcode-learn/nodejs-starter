@@ -16,4 +16,23 @@ router.post("/", async function (req, res, next) {
   res.send({ success: true, data: newTodo });
 });
 
+/** Get Single Todo */
+router.get("/:id", async function (req, res) {
+  const todo = await Todo.findById(req.params.id);
+  res.send({ success: true, data: todo });
+});
+
+/** Update Todo */
+router.put("/:id", async function (req, res) {
+  const todoData = {
+    content: req.body.content,
+    updatedAt: Date.now(),
+  };
+  const todo = await Todo.findByIdAndUpdate(req.params.id, todoData, {
+    new: true,
+    runValidators: true,
+  });
+  res.send({ success: true, data: todo });
+});
+
 module.exports = router;
