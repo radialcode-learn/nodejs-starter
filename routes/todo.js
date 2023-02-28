@@ -27,6 +27,7 @@ router.put("/:id", async function (req, res) {
   const todoData = {
     content: req.body.content,
     updatedAt: Date.now(),
+    completed: req.body.completed,
   };
   const todo = await Todo.findByIdAndUpdate(req.params.id, todoData, {
     new: true,
